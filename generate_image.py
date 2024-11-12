@@ -16,7 +16,7 @@ bucket_name = "pgr301-couch-explorers"
 prompt = "Investors, with circus hats, giving money to developers with large smiles"
 
 seed = random.randint(0, 2147483647)
-s3_image_path = f"generated_images/titan_{seed}.png"
+s3_image_path = f"60/image_{seed}.png"
 
 native_request = {
     "taskType": "TEXT_IMAGE",
