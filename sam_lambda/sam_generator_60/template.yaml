@@ -1,5 +1,5 @@
-#Used hello_world template, but renamed to generate_image
-#Created new role and policy
+# Used hello_world template, but renamed to generate_image
+# Created new role and policy
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
@@ -9,30 +9,33 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 3
-    MemorySize: 128
+    Timeout: 30  # Increased timeout from 3 to 10 to allow time for image generation
+    MemorySize: 1024  # Increased memory size to 512MB for handling image generation
 
 Resources:
   GenerateImageFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: GenerateImage/
+      CodeUri: generate_image/
       Handler: app.lambda_handler
-      Runtime: python3.8
+      Runtime: python3.9
       Architectures:
         - x86_64
-      Role: arn:aws:iam::244530008913:role/GenerateImageFunction_role_cand60  # Specify role here
+      Role: arn:aws:iam::244530008913:role/GenerateImageFunction_role_cand60
       Events:
         GenerateImage:
           Type: Api
           Properties:
             Path: /generate
-            Method: get
+            Method: post  # Updated from GET to POST
+      Environment:
+        Variables:
+          BUCKET_NAME: pgr301-couch-explorers  # Added environment variable for the S3 bucket
 
 Outputs:
   GenerateImageApi:
     Description: "API Gateway endpoint URL for Prod stage for GenerateImageFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/generate/"  # Updated URL
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/generate/"
   GenerateImageFunction:
     Description: "Generate Image Lambda Function ARN"
     Value: !GetAtt GenerateImageFunction.Arn
