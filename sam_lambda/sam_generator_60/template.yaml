@@ -16,11 +16,12 @@ Resources:
   GenerateImageFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: generate_image/
+      CodeUri: GenerateImage/
       Handler: app.lambda_handler
       Runtime: python3.8
       Architectures:
         - x86_64
+      Role: arn:aws:iam::244530008913:role/GenerateImageFunction_role_cand60  # Specify role here
       Events:
         GenerateImage:
           Type: Api
@@ -31,10 +32,10 @@ Resources:
 Outputs:
   GenerateImageApi:
     Description: "API Gateway endpoint URL for Prod stage for GenerateImageFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/generate/"  # Updated URL
   GenerateImageFunction:
     Description: "Generate Image Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
+    Value: !GetAtt GenerateImageFunction.Arn
   GenerateImageFunctionIamRole:
-    Description: "Implicit IAM Role created for GenerateImageFunction"
+    Description: "Explicit IAM Role created for GenerateImageFunction"
     Value: arn:aws:iam::244530008913:role/GenerateImageFunction_role_cand60
