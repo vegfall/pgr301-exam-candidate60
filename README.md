@@ -1,3 +1,7 @@
+## Oppgaveløsninger
+* Oppgave 1
+  * https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
+
 # PGR301 EKSAMEN 2024 Couch Explorers - Bærekraftig turisme fra sofakroken ! 
 
 <img width="1181" alt="image" src="img/header.png">
