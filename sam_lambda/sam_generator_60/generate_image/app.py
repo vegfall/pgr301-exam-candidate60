@@ -1,3 +1,5 @@
+#Frank: I chose to create a new lambda function, using elements from generate_image.py but put it in the SAM blueprint for hello_world. 
+#I added multiple exception/error handling for different issues that has/might occur.
 import json
 import boto3
 import base64

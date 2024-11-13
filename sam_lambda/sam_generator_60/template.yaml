@@ -1,5 +1,5 @@
 # Used hello_world template, but renamed to generate_image
-# Created new role and policy
+# Created new role and policy, and increased timeout and memory, due to timeout error when invoking the generate image function.
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
@@ -9,8 +9,8 @@ Description: >
 
 Globals:
   Function:
-    Timeout: 30  # Increased timeout from 3 to 10 to allow time for image generation
-    MemorySize: 1024  # Increased memory size to 512MB for handling image generation
+    Timeout: 30
+    MemorySize: 1024
 
 Resources:
   GenerateImageFunction:
@@ -27,10 +27,10 @@ Resources:
           Type: Api
           Properties:
             Path: /generate
-            Method: post  # Updated from GET to POST
+            Method: post
       Environment:
         Variables:
-          BUCKET_NAME: pgr301-couch-explorers  # Added environment variable for the S3 bucket
+          BUCKET_NAME: pgr301-couch-explorers
 
 Outputs:
   GenerateImageApi:
