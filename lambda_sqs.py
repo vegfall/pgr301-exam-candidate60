@@ -18,7 +18,8 @@ def lambda_handler(event, context):
         # Extract the SQS message body
         prompt = record["body"]
         seed = random.randint(0, 2147483647)
-        s3_image_path = f"images/titan_{seed}.png"
+        image_prefix = "60/"
+        image_name = f"image_{seed}.png"
         # Prepare the request for image generation
         native_request = {
             "taskType": "TEXT_IMAGE",
@@ -44,7 +45,7 @@ def lambda_handler(event, context):
         image_data = base64.b64decode(base64_image_data)
 
         # Upload the image to S3
-        s3_client.put_object(Bucket=BUCKET_NAME, Key=s3_image_path, Body=image_data)
+        s3_client.put_object(Bucket=BUCKET_NAME, Key=image_prefix+image_name, Body=image_data)
 
     return {
         "statusCode": 200,
