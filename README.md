@@ -1,6 +1,7 @@
 ## Oppgaveløsninger
 * Oppgave 1
-  * https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
+  * A: https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
+  * B: [![.github/workflows/deploy.yaml](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/deploy.yaml/badge.svg)](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/deploy.yaml)
 
 # PGR301 EKSAMEN 2024 Couch Explorers - Bærekraftig turisme fra sofakroken ! 
 
