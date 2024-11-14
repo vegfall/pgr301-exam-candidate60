@@ -2,13 +2,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'sam_lambda/**'
 
 defaults:
   run:
     working-directory: ./sam_lambda/sam_generator_60
 
 jobs:
-  build-deploy:
+  deploy-sam-lambda:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
