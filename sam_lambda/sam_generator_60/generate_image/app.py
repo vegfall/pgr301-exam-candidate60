@@ -36,7 +36,8 @@ def lambda_handler(event, context):
         }
         
     seed = random.randint(0, 2147483647)
-    s3_image_path = f"60/image_{seed}.png"
+    image_prefix = "60/"
+    image_name = f"image_{seed}.png"
     
     native_request = {
         "taskType": "TEXT_IMAGE",
@@ -61,13 +62,13 @@ def lambda_handler(event, context):
         base64_image_data = model_response["images"][0]
         image_data = base64.b64decode(base64_image_data)
         
-        s3_client.put_object(Bucket=BUCKET_NAME, Key=s3_image_path, Body=image_data)
+        s3_client.put_object(Bucket=BUCKET_NAME, Key=image_prefix+image_name, Body=image_data)
         
         return {
             "statusCode": 201,
             "body": json.dumps({
-                "message": "Image successfully generated...",
-                "s3_image_path": f"s3://{BUCKET_NAME}/{s3_image_path}"
+                "message": f"Image {image_name} successfully generated in {BUCKET_NAME}. :)",
+                "s3_image_path": f"s3://{BUCKET_NAME}/{image_prefix}{image_name}"
             })
         }
         
