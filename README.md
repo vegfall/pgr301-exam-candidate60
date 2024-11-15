@@ -2,6 +2,9 @@
 * Oppgave 1
   * A: https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
   * B: [![.github/workflows/deploy.yaml](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/deploy.yaml/badge.svg)](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/deploy.yaml)
+* Oppgave 2
+  * [![Terraform Deploy Workflow](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/terraform_deploy.yaml/badge.svg)](https://github.com/vegfall/pgr301-exam-candidate60/actions/workflows/terraform_deploy.yaml)
+  * 
 
 # PGR301 EKSAMEN 2024 Couch Explorers - Bærekraftig turisme fra sofakroken ! 
 
