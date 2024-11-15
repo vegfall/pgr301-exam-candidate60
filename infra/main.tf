@@ -50,4 +50,3 @@ resource "aws_lambda_event_source_mapping" "sqs_to_lambda" {
   batch_size       = 5
   enabled          = true
 }
-
