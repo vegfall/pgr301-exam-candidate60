@@ -7,7 +7,7 @@
   * https://github.com/vegfall/pgr301-exam-candidate60/actions/runs/11863388760
   * https://sqs.eu-west-1.amazonaws.com/244530008913/image-request-queue-60
 * Oppgave 3
-  * Lærte nylig om Git tags, så valgte å bruke det for lettere kontroll over versjon, og for å unngå problemer med "mutable"-tags som "latest". Jeg har derimot laget en feilsjekk som endrer versjon til "latest" hvis ingen andre har blitt satt, med tanke på at latest kan brukes under development, mens production alltid bør ha et versjonsnummer i git og docker hub.
+  * Lærte nylig om git tags, så valgte å bruke det for lettere kontroll over version, og for å unngå problemer med "mutable"-tags som "latest". Docker vil da bare bygge og pushe til dockerhub når en ny version tag (v.\*.\*.\*) blir pushet til github, slik at bare spesifikke versjoner blir gjort offentlig.
   * Container image: vefa003pgr301/java-sqs-client
   * SQS URL: https://sqs.eu-west-1.amazonaws.com/244530008913/image-request-queue-60
 

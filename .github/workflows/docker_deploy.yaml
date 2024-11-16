@@ -2,8 +2,6 @@ name: "Docker Publish Workflow"
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'
 
@@ -28,15 +26,10 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         
-      - name: "Extract Git Tag or Default to Latest"
+      - name: "Extract Git Tag"
         id: extract_tag
         run: |
-          echo "GITHUB_REF: $GITHUB_REF"
-          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
-            TAG="${GITHUB_REF#refs/tags/}"
-          else
-            TAG="latest"
-          fi
+          TAG="${GITHUB_REF#refs/tags/}"
           echo "TAG=$TAG" >> $GITHUB_ENV
 
       - name: "Build Docker Image"
