@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'java_sqs_client/**'
+#    paths:
+#      - 'java_sqs_client/**'
 
 jobs:
   build-and-publish:
