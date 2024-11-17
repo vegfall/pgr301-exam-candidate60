@@ -15,13 +15,13 @@ variable "oldest_message_threshold" {
 }
 
 variable "alarm_period" {
-  description = "The time period (in seconds) over which the metric is evaluated."
+  description = "The time period (in seconds) over which the metric is evaluated"
   type        = number
   default     = 60
 }
 
 variable "evaluation_periods" {
-  description = "The number of periods over which the specified condition must be met."
+  description = "The number of periods over which the specified condition must be met"
   type        = number
   default     = 1
 }
