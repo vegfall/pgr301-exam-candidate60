@@ -9,7 +9,7 @@ variable "sqs_queue_name" {
 }
 
 variable "oldest_message_threshold" {
-  description = "The threshold (in seconds) for the age of the oldest message before triggering the alarm."
+  description = "The threshold (in seconds) for the age of the oldest message before triggering the alarm"
   type        = number
   default     = 300
 }
