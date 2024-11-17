@@ -1,5 +1,5 @@
 variable "notification_email" {
-  description = "The email address to send alarm notifications to."
+  description = "The email address to send alarm notifications to"
   type        = string
 }
 
