@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: eu-west-1
+    defaults:
+      run:
+        working-directory: ./infra
     steps:
       - name: "Checkout Repository"
         uses: actions/checkout@v2
@@ -27,20 +30,13 @@ jobs:
       - name: "Set up Terraform"
         uses: hashicorp/setup-terraform@v2
 
-      - name: "Change Directory to infra"
-        working-directory: infra
-        run: pwd
-
       - name: "Initialize Terraform"
-        working-directory: infra
         run: terraform init
 
       - name: "Terraform Plan"
         if: github.ref != 'refs/heads/main'
-        working-directory: infra
-        run: terraform plan
+        run: terraform plan -var-file="terraform.tfvars"
 
       - name: "Terraform Apply"
         if: github.ref == 'refs/heads/main'
-        working-directory: infra
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var-file="terraform.tfvars"
