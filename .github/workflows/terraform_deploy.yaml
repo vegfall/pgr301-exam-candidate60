@@ -18,12 +18,6 @@ jobs:
       - name: "Checkout Repository"
         uses: actions/checkout@v2
 
-      - name: "Debug - List Repository Contents"
-        run: ls -la
-
-      - name: "Debug - List Infra Directory Contents"
-        run: ls -la infra
-
       - name: "Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
         with:
