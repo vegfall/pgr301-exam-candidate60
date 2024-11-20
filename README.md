@@ -1,15 +1,49 @@
 ## Oppgaveløsninger
-* Oppgave 1
-  * A: https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
-  * B: https://github.com/vegfall/pgr301-exam-candidate60/actions/runs/11845246997
-* Oppgave 2
+* **Oppgave 1**
+  * **A**: https://esw7r0zopd.execute-api.eu-west-1.amazonaws.com/Prod/generate
+  * **B**: https://github.com/vegfall/pgr301-exam-candidate60/actions/runs/11845246997
+* **Oppgave 2**
   * https://github.com/vegfall/pgr301-exam-candidate60/actions/runs/11863435256
   * https://github.com/vegfall/pgr301-exam-candidate60/actions/runs/11863388760
   * https://sqs.eu-west-1.amazonaws.com/244530008913/image-request-queue-60
-* Oppgave 3
+* **Oppgave 3**
   * Lærte nylig om git tags, så valgte å bruke det for lettere kontroll over version, og for å unngå problemer med "mutable"-tags som "latest". Docker vil da bare bygge og pushe til dockerhub når en ny version tag (v.\*.\*.\*) blir pushet til github, slik at bare spesifikke versjoner blir gjort offentlig.
   * Container image: vefa003pgr301/java-sqs-client
   * SQS URL: https://sqs.eu-west-1.amazonaws.com/244530008913/image-request-queue-60
+* **Oppgave 5**
+  * **1: Automatisering og kontinuerlig levering (CI/CD)**
+    * **Lambda**
+      * **Fordel:** Siden funksjonene kjører for seg selv gjør det det enklere å utvikle, teste og rulle ut, hvor man ikke trenger å teste hele systemet hver gang en funksjon endres.
+      * **Ulempe:** Når man har mange lambda-funksjoner blir det vanskeligere å designe og vedlikeholde pipelines hvis funksjonene er avhengig av andre.
+    * **Mikrotjenester**
+      * **Fordel:** Som en større tjeneste og med verktøy som Docker blir design og utrulling enklere.
+      * **Ulempe:** Tar lenger tid å bygge og teste, hvor mikrotjenester vanligvis har flere biblioteker eller andre tjenester.
+  
+  * **2: Observability (overvåkning)**
+    * **Lambda**
+      * **Fordel:** Lettere å feilsøke ved feil hvor hver funksjon er isolert, og AWS tilbyr overvåkningsløsninger som CloudWatch.
+      * **Ulempe:** Hvis en forespørsel går gjennom flere funksjoner kan det være vanskeligere å spore et problem.
+    * **Mikrotjenester**
+      * **Fordel:** Lettere å følge flyten gjennom hele tjenesten og implementere strukturert overvåkning.
+      * **Ulempe:** Krever ekstra arbeid og ressurser for å sette opp ny overvåkning og feilsøking.
+  
+  * **3: Skalerbarhet og kostnadskontroll**
+    * **Lambda**
+      * **Fordel:** Lambda-funksjonene skalerer basert på forespørselen, og man betaler kun for kjøretiden.
+      * **Ulempe:** Kostnadene kan bli høye ved mye aktivitet, og begrensninger er satt som maks 15 minutter per funksjon.
+    * **Mikrotjenester**
+      * **Fordel:** Man får faste kostnader med løsninger som ECS og EC2, som også kan skaleres etter behov.
+      * **Ulempe:** Man betaler for nedetid og for ressurser man kanskje ikke bruker.
+  
+  * **4: Eierskap og ansvar**
+    * **Lambda**
+      * **Fordel:** Mindre ansvar for infrastrukturen hvor AWS håndterer servere, skalering og drift.
+      * **Ulempe:** Mindre kontroll over hvordan infrastrukturen kjøres.
+    * **Mikrotjenester**
+      * **Fordel:** Full kontroll over infrastrukturen og hvordan ressursene og tjenestene kjøres.
+      * **Ulempe:** Mer ansvar i forhold til administrasjon, drift og sikkerhet.
+
+---
 
 # PGR301 EKSAMEN 2024 Couch Explorers - Bærekraftig turisme fra sofakroken ! 
 
